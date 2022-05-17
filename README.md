@@ -13,7 +13,7 @@ Pour redémarrer le projet :
 
 # Base de données :
 
-Dans un nouveau terminal, lancer la commande ```yarn prisma studio ```
+Dans un nouveau terminal, lancer la commande ```yarn prisma studio```
 La base de donnée sera accessible à l'adresse ```http://localhost:5555/```
 
 # Doc
@@ -29,12 +29,16 @@ En appelant la route de login avec un des utilisateurs existants un token lié �
 
 ### Récupérer la liste des produits pour un utilisateur authentifié
 
+```
 curl -X 'GET' \
   'http://localhost:2000/v1/products' \
   -H 'accept: */*' \
   -H "Authorization: {AUTH_TOKEN}"
+```
 
 ### Déconnecter un utilisteur
+
+```
 curl -X 'POST' \
   'http://localhost:2000/v1/auth/logout' \
   -H 'accept: */*' \
@@ -43,3 +47,4 @@ curl -X 'POST' \
   -d '{
       "userId": {USER_ID}
   }'
+```
