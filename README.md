@@ -1,6 +1,6 @@
 # Prérequis
 
-- Assurez-vous d'avoir Docker et docker-compose d'installer
+- Assurez-vous d'avoir **Docker** et **docker-compose** d'installer
 
 # Démarrage
 
@@ -13,10 +13,10 @@ Pour redémarrer le projet :
 
 # Base de données :
 
-Dans un nouveau terminal, lancer la commande ```yarn prisma studio```
+Dans un nouveau terminal, lancer la commande ```docker exec -it api_nest_nestjs_1 yarn prisma studio```
 La base de donnée sera accessible à l'adresse ```http://localhost:5555/```
 
-# Doc
+# Documentation
 
 - La documentation de l'API est disponible à l'adresse: ```http://localhost:2000/api/```
 
