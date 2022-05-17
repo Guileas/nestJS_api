@@ -1,0 +1,38 @@
+version: "3.1"
+
+services:
+
+    nestjs:
+        hostname: api
+        build:
+            context: .
+            dockerfile: Dockerfile
+        command: yarn start:prod
+        ports:
+            - 2000:2000
+            - 9229:9229
+            - 5555:5555
+        networks:
+            - api_nest
+        working_dir: /app
+        volumes:
+            - .:/app
+        restart: unless-stopped
+
+    sqlitebrowser:
+        image: lscr.io/linuxserver/sqlitebrowser:latest
+        container_name: sqlitebrowser
+        environment:
+            - PUID=1000
+            - PGID=1000
+            - TZ=Europe/London
+        volumes:
+            - .:/app/db
+        networks:
+            - api_nest
+        ports:
+            - 1000:3000
+        restart: unless-stopped
+
+networks:
+    api_nest:
